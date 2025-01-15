@@ -111,7 +111,7 @@ const Game = () => {
             </section>
             <Popup isShow={showPopup} onCancel={onCancel} onSubmit={onSubmit}>
                {
-                isBlockCell ? popupSeedBody() : popupBlockBody()
+                isBlockCell ? popupBlockBody() : popupSeedBody() 
                }
             </Popup>
            
