@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 // import { TypeVegetables } from "../../modules/Cell";
 import "./Select.css"
 
 type Item = {
-    label: string
+    label: string //| ReactNode
     value: any
+    amount: number
 }
 
 type Props = {
@@ -15,16 +16,33 @@ const Select = (props:Props) => {
     const [show, setShow] = useState(false)
     const [value, setValue] = useState ()
     const [label, setLabel] = useState("")
+    const [amount, setAmount] = useState()
+
+    // useEffect(
+    //     () => {
+    //         setValue(undefined)
+    //         setLabel("")
+    //         setShow(false)
+    //     }, [props.items]
+    // )
 
     useEffect(
         ()=>{
-            props.onSelect(value)
+            if(value){
+                props.onSelect(value)
+
+                
+            }
         }, [value]
     )
 
     const onSelect = (item: Item) =>{
+        // if(!item.disabled){
+
+        // }
         setValue(item.value)
-        setLabel (item.label)
+        setLabel (item.label) //<string | ReactNode>
+        // setAmount (item.amount)
         setShow(false)
     }
 
@@ -35,9 +53,9 @@ const Select = (props:Props) => {
             </div>
             <div className={"list " + ( show ? "" : "hidden")}>
                 {props.items.map((item, index)=>(
-                    <div key={`item_${index}`}
-                     onClick={()=>onSelect(item)}>
-                        {item.label}
+                    <div key={`item_${index}`} className={item.amount != 0 ? "" : "gray"}
+                     onClick={item.amount != 0 ? ()=>onSelect(item) : ()=>""}>
+                        {item.label} x{item.amount}
                     </div>
                 ))}
             </div>

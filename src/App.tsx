@@ -5,7 +5,11 @@ import Game from './pages/Game/Game';
 
 function App() {
   return (
-    <Game/>
+    <div className='main'>
+      
+      <Game/>
+    </div>
+    
   );
 }
 

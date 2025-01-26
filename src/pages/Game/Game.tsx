@@ -10,7 +10,7 @@ import Popup from "../../components/Popup/Popup";
 import Select from "../../components/Select/Select";
 
 
-const field = new FieldVegetables(16)
+export const field = new FieldVegetables(16)
 
 const colors = {
     [TypeVegetables.EMPTY]: "white",
@@ -23,17 +23,49 @@ const colors = {
     [TypeVegetables.PUMPKIN]: " rgb(179, 118, 7)",
     [TypeVegetables.BLOCK]: " rgb(0, 0, 0)",
 }
+const names = {
+    [TypeVegetables.EMPTY]: " ",
+    [TypeVegetables.TOMATO]: "Помидор",
+    [TypeVegetables.CARROT]: "Морковь",
+    [TypeVegetables.POTATO]: "Картошка",
+    [TypeVegetables.CUCUMBER]: "Огурец",
+    [TypeVegetables.EGGPLANT]: "Баклажан",
+    [TypeVegetables.ZUCCHINI]: "Кабачек",
+    [TypeVegetables.PUMPKIN]: "Тыква",
+    [TypeVegetables.BLOCK]: "",
+} 
 
 const Game = () => {
 
     const items = [
-        {label:"Морковь", value: TypeVegetables.CARROT},
-        {label:"Помидор", value: TypeVegetables.TOMATO},
-        {label:"Картошка", value: TypeVegetables.POTATO},
-        {label:"Огурец", value: TypeVegetables.CUCUMBER},
-        {label:"Баклажан", value: TypeVegetables.EGGPLANT},
-        {label:"Кабачек", value: TypeVegetables.ZUCCHINI},
-        {label:"Тыква", value: TypeVegetables.PUMPKIN},
+        {
+            label:"Морковь", 
+            value: TypeVegetables.CARROT, 
+            amount: field.seeds[TypeVegetables.CARROT]},
+        {
+            label:"Помидор", 
+            value: TypeVegetables.TOMATO, 
+            amount: field.seeds[TypeVegetables.TOMATO]},
+        {
+            label:"Картошка", 
+            value: TypeVegetables.POTATO, 
+            amount: field.seeds[TypeVegetables.POTATO]},
+        {
+            label:"Огурец", 
+            value: TypeVegetables.CUCUMBER, 
+            amount: field.seeds[TypeVegetables.CUCUMBER]},
+        {
+            label:"Баклажан", 
+            value: TypeVegetables.EGGPLANT, 
+            amount: field.seeds[TypeVegetables.EGGPLANT]},
+        {
+            label:"Кабачек", 
+            value: TypeVegetables.ZUCCHINI, 
+            amount: field.seeds[TypeVegetables.ZUCCHINI]},
+        {
+            label:"Тыква", 
+            value: TypeVegetables.PUMPKIN, 
+            amount: field.seeds[TypeVegetables.PUMPKIN]},
     ]
     
     const [cells, setCells] = useState<CellVegetable[]>(field.field) // что такое это

@@ -3,9 +3,29 @@ import CellVegetable, { Block, Carrot, Cucumber, Eggplant, Potato, Pumpkin, Toma
 import "./Field.css"
 
 
+type Seeds = {
+    [n: number]: number
+}
 export default class FieldVegetables{
     private cells: any[] = []
+
+   
+
+    private _seeds: Seeds = {
+            [TypeVegetables.TOMATO]: 5,
+            [TypeVegetables.CARROT]: 4,
+            [TypeVegetables.CUCUMBER]: 3,
+            [TypeVegetables.EGGPLANT]: 2,
+            [TypeVegetables.POTATO]: 5,
+            [TypeVegetables.PUMPKIN]: 4,
+            [TypeVegetables.ZUCCHINI]: 3,
+
+        };
     
+        
+    get seeds(){
+        return this._seeds
+    }
     get field(){
         return[...this.cells]
     }
@@ -26,35 +46,92 @@ export default class FieldVegetables{
         }
     }
 
+    // seedsNumber(type: TypeVegetables){
+    //     if(this.seeds.type === 0 ||){
+
+    //     }
+    // }
+
     seed(type: TypeVegetables, index:number){
-        if(this.cells[index] && 
+        if(this.cells[index] && (
             this.cells[index].type === TypeVegetables.EMPTY || 
-            this.cells[index].type === TypeVegetables.BLOCK)
+            this.cells[index].type === TypeVegetables.BLOCK))
             {
+                console.log(this.cells[index], type)
+                // if (type && 
+                //     type !== TypeVegetables.BLOCK &&
+                //     this.cells[index].type !== TypeVegetables.BLOCK ) {
+                //     if(this.seeds[type] > 0) {
+                //         switch case 
+                //     } //Нужно переделать это место
             switch (type) {
                 case TypeVegetables.TOMATO:
-                    this.cells[index] =  new Tomato
+                    if(this.seeds[TypeVegetables.TOMATO] != 0 ){
+                        this.cells[index] =  new Tomato
+                        this._seeds[TypeVegetables.TOMATO] -= 1
+                    } else{
+                        alert("Семя закончилось")
+                    }                    
                     break;
+
                 case TypeVegetables.POTATO:
-                    this.cells[index] = new Potato
+                    if(this.seeds[TypeVegetables.POTATO] != 0 ){
+                        this.cells[index] =  new Potato
+                        this.seeds[TypeVegetables.POTATO] -= 1
+                    } else{
+                        alert("Семя закончилось")
+                    }
                     break;
+
                 case TypeVegetables.CARROT:
-                    this.cells[index] = new Carrot
+                    if(this.seeds[TypeVegetables.CARROT] != 0 ){
+                        this.cells[index] =  new Carrot
+                        this.seeds[TypeVegetables.CARROT] -= 1
+                    } else{
+                        alert("Семя закончилось")
+                    }
                     break;
+
                 case TypeVegetables.CUCUMBER:
-                    this.cells[index] = new Cucumber
+                    if(this.seeds[TypeVegetables.CUCUMBER] != 0 ){
+                        this.cells[index] =  new Cucumber
+                        this.seeds[TypeVegetables.CUCUMBER] -= 1
+                    } else{
+                        alert("Семя закончилось")
+                    }
                     break;
+
                 case TypeVegetables.EGGPLANT:
-                    this.cells[index] = new Eggplant
+                    if(this.seeds[TypeVegetables.EGGPLANT] != 0 ){
+                        this.cells[index] =  new Eggplant
+                        this.seeds[TypeVegetables.EGGPLANT] -= 1
+                    } else{
+                        alert("Семя закончилось")
+                    }
                     break;
+
                 case TypeVegetables.ZUCCHINI:
-                    this.cells[index] = new Zucchini
+                    if(this.seeds[TypeVegetables.ZUCCHINI] != 0 ){
+                        this.cells[index] =  new Zucchini
+                        this.seeds[TypeVegetables.ZUCCHINI] -= 1
+                    } else{
+                        alert("Семя закончилось")
+                    }
                     break;
+
                 case TypeVegetables.PUMPKIN:
-                    this.cells[index] = new Pumpkin
+                    if(this.seeds[TypeVegetables.PUMPKIN] != 0 ){
+                        this.cells[index] =  new Pumpkin
+                        this.seeds[TypeVegetables.PUMPKIN] -= 1
+                    } else{
+                        alert("Семя закончилось")
+                    }
                     break;
+
                 case TypeVegetables.BLOCK:
+                default:
                     this.cells[index] = new CellVegetable()
+                    console.log(this.cells)
                     break;
             
             }

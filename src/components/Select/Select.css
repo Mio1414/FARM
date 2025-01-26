@@ -15,9 +15,16 @@ div.select > div.list{
 }
 div.selected > div.list > div {
     padding: 10px;
+    /* cursor: pointer; */
+}
+div.selected > div.list > div:not(.gray){
     cursor: pointer;
 }
 
 div.selected > div.list > div:not(:last-child){
     border-bottom: 1px solid black;
+}
+div.selected > div.list > div.gray{
+    background-color: rgba(154, 153, 153, 0.128);
+    
 }
