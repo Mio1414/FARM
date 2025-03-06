@@ -14,7 +14,7 @@ export default class CellVegetable{
     readonly expired:number = 0
     protected stage: number = 0
     protected readonly stages: number[] = []
-    protected readonly _color:number[] = [255, 255, 255]
+    protected readonly _color:number[] = []
 
     get color(){
         let alpha = 1

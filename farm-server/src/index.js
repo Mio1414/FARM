@@ -93,16 +93,28 @@ class Server {
                 console.log(bodyObj)
 
                 let isFound = false
-
-                for(i = 0; i < this.vegetableArray.length; i++){
-                    if (i.value != bodyObj.value){
-                        this.vegetableArray.push(bodyObj)       
-                        console.log(this.vegetableArray)
-                        res.end("this is POST")
-                    } else {
-                        // this.roteNotFound(req, res)
+                for(let i = 0; i < this.vegetableArray.length && !isFound; i++){
+                    if(this.vegetableArray[i] = bodyObj.value){
+                        isFound = true
                     }
                 }
+                if(isFound){
+                    res.statusCode = 422
+                }else{
+                    this.vegetableArray.push(bodyObj)
+                    res.end("this is POST")
+                }
+
+                // for(i = 0; i < this.vegetableArray.length; i++){
+                //     if (i.value != bodyObj.value){
+                //         this.vegetableArray.push(bodyObj)       
+                //         console.log(this.vegetableArray)
+                //         res.end("this is POST")
+                //     } else {
+                //         // this.roteNotFound(req, res)
+                //     }
+                // }
+
                 
                
             })
@@ -128,7 +140,9 @@ class Server {
         res.setHeader("Content-type", "application/json")
         res.end(JSON.stringify(data))
     }
-    
+    roteCreateAnimals(req, res){
+        
+    }
     roteRoot(req, res){
 
         res.end("it is root")

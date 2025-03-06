@@ -353,7 +353,9 @@ const Game = () => {
                     </div>
                 ))}
             </section>
-            <section className="dog"></section>
+            <section className="dog">
+                <section className="doghouse"></section>
+            </section>
             <section className="yard" onClick={onClickYard}>
                 <div className={Type.ANIMALS}>
                     {animals.map(animal => <div className={`${Type.ANIMALS} ${animalsClasses[animal.type]}`}></div>)}

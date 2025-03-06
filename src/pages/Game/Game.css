@@ -1,14 +1,25 @@
+:root{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    /* width: 100vh; */
+    height: 100vh;
+}
 main.game{
-    height: 100%;
-    width: 100%;
+    height: 75vh;
+    width: 75vh;
     position: relative;
-    
+    background-image: url(../../../farm-img/Background/5e04942f-c616-4065-b747-aadba594d719.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: ; */
 }
 main.game > section.field {
     display: flex;
     flex-wrap: wrap;
-    width: 400px;
-    height: 100px;
+    width: 80%;
+    height:20%;
 
     position: absolute;
     left: 15%;
@@ -17,11 +28,14 @@ main.game > section.field {
 }
 main.game > section.field > div.cell{
     /* background-color: black; */
-    width: 50px;
-    height: 50px;
+    width: 12%;
+    height: 50%;
     border: 1px solid black;
     box-sizing: border-box;
+    background-image: url(../../../farm-img/Field/Cell.png);
+    background-size: contain;
 }
+
 div.potato{
     background-color: rgb(246, 255, 127);
 }
@@ -46,23 +60,35 @@ div.pumpkin{
 }
 main.game > section.dog{
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 17%;
+    height: 17%;
     border: 4px solid brown;
     left: 10%;
-    top: 40%;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* z-index: 2; */
+    background-image: url(../../../farm-img/Doghouse/Doghouse.png);
+    background-size: cover;
 
 
 }
+main.game > section.dog > section.doghouse{
+    width: 100%;
+    height: 100%;
+    
+}
 main.game > section.yard{
     position: absolute;
-    width: 300px;
-    height: 150px;
+    width: 30%;
+    height: 15%;
     border: 4px solid rgb(42, 79, 165);
     left: 40%;
-    top: 40%;
+    top: 50%;
     display: flex;
     align-items: center;
+    z-index: 5;
 
     
 }
@@ -104,11 +130,14 @@ main.game > section.yard div.hay{
 
 main.game > section.house{
     position: absolute;
-    width: 300px;
-    height: 200px;
+    width: 50%;
+    height: 50%;
     border: 4px solid rgb(165, 126, 42);
-    left: 60%;
-    top: 0%;
+    right: 0%;
+    top: 12%;
+    background-image: url(../../../farm-img/House/House.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 main.game > section.farmer{
     position: absolute;
