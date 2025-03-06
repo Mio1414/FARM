@@ -4,3 +4,11 @@ div#root > div.main{
   position: relative;
   border: 1px solid green;
 }
+span.go-back{
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}

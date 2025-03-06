@@ -1,10 +1,10 @@
-main{
+main.game{
     height: 100%;
     width: 100%;
     position: relative;
     
 }
-main > section {
+main.game > section.field {
     display: flex;
     flex-wrap: wrap;
     width: 400px;
@@ -15,7 +15,7 @@ main > section {
     top: 75%;
 
 }
-main > section > div.cell{
+main.game > section.field > div.cell{
     /* background-color: black; */
     width: 50px;
     height: 50px;
@@ -26,17 +26,15 @@ div.potato{
     background-color: rgb(246, 255, 127);
 }
 div.tomato{
-    background-color: red;
+    background-color: rgb(255, 0, 0);
 }
 div.cucumber{
-    background-color: green;
+    background-color: rgb(0, 128, 0);
 }
 div.carrot{
-    background-color: orange;
+    background-color: rgb(255, 165, 0);
 }
-div.carrot{
-    background-color: orange;
-}
+
 div.eggplant{
     background-color: rgb(123, 0, 255);
 }
@@ -45,4 +43,78 @@ div.zucchini{
 }
 div.pumpkin{
     background-color: rgb(179, 118, 7);
+}
+main.game > section.dog{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 4px solid brown;
+    left: 10%;
+    top: 40%;
+
+
+}
+main.game > section.yard{
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    border: 4px solid rgb(42, 79, 165);
+    left: 40%;
+    top: 40%;
+    display: flex;
+    align-items: center;
+
+    
+}
+main.game > section.yard > div.animal, main.game > section.yard > div.food{
+    display: flex;
+    align-items: center;
+}
+
+main.game > section.yard  div.pork{
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+}
+
+main.game > section.yard  div.cow{
+    width: 50px;
+    height: 50px;
+    background-color: brown;
+}
+
+div.apple, div.carrot, div.grass, div.hay{
+    width: 20px;
+    height: 20px;
+    /* background-color: brown; */
+}
+
+main.game > section.yard div.apple{
+    background-color: rgb(234, 63, 25);
+}
+main.game > section.yard div.carrot{
+    background-color: rgb(234, 136, 25);
+}
+main.game > section.yard div.grass{
+    background-color: rgb(25, 234, 56);
+}
+main.game > section.yard div.hay{
+    background-color: rgb(51, 77, 47);
+}
+
+main.game > section.house{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border: 4px solid rgb(165, 126, 42);
+    left: 60%;
+    top: 0%;
+}
+main.game > section.farmer{
+    position: absolute;
+    width: 100px;
+    height: 300px;
+    border: 4px solid rgb(108, 42, 165);
+    left: 60%;
+    top: 10%;
 }

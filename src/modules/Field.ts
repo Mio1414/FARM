@@ -6,8 +6,14 @@ import "./Field.css"
 type Seeds = {
     [n: number]: number
 }
+// type Aging = {
+
+//     name: string
+//     [n: number]: number
+// }
+
 export default class FieldVegetables{
-    private cells: any[] = []
+    private _cells: any[] = []
 
    
 
@@ -27,7 +33,10 @@ export default class FieldVegetables{
         return this._seeds
     }
     get field(){
-        return[...this.cells]
+        return[...this._cells]
+    }
+    get cells(){
+        return this. _cells
     }
 
     constructor(size: number){
@@ -38,9 +47,9 @@ export default class FieldVegetables{
         
         for(let i = 0; i < size; i++){
             if(i % (size/2) > (size/4 -1)){
-                this.cells.push(new Block)
+                this._cells.push(new Block)
             } else {
-                this.cells.push(new CellVegetable)
+                this._cells.push(new CellVegetable)
             }
             
         }
@@ -53,11 +62,11 @@ export default class FieldVegetables{
     // }
 
     seed(type: TypeVegetables, index:number){
-        if(this.cells[index] && (
-            this.cells[index].type === TypeVegetables.EMPTY || 
-            this.cells[index].type === TypeVegetables.BLOCK))
+        if(this._cells[index] && (
+            this._cells[index].type === TypeVegetables.EMPTY || 
+            this._cells[index].type === TypeVegetables.BLOCK))
             {
-                console.log(this.cells[index], type)
+                console.log(this._cells[index], type)
                 // if (type && 
                 //     type !== TypeVegetables.BLOCK &&
                 //     this.cells[index].type !== TypeVegetables.BLOCK ) {
@@ -67,7 +76,7 @@ export default class FieldVegetables{
             switch (type) {
                 case TypeVegetables.TOMATO:
                     if(this.seeds[TypeVegetables.TOMATO] != 0 ){
-                        this.cells[index] =  new Tomato
+                        this._cells[index] =  new Tomato
                         this._seeds[TypeVegetables.TOMATO] -= 1
                     } else{
                         alert("Семя закончилось")
@@ -76,7 +85,7 @@ export default class FieldVegetables{
 
                 case TypeVegetables.POTATO:
                     if(this.seeds[TypeVegetables.POTATO] != 0 ){
-                        this.cells[index] =  new Potato
+                        this._cells[index] =  new Potato
                         this.seeds[TypeVegetables.POTATO] -= 1
                     } else{
                         alert("Семя закончилось")
@@ -85,7 +94,7 @@ export default class FieldVegetables{
 
                 case TypeVegetables.CARROT:
                     if(this.seeds[TypeVegetables.CARROT] != 0 ){
-                        this.cells[index] =  new Carrot
+                        this._cells[index] =  new Carrot
                         this.seeds[TypeVegetables.CARROT] -= 1
                     } else{
                         alert("Семя закончилось")
@@ -94,7 +103,7 @@ export default class FieldVegetables{
 
                 case TypeVegetables.CUCUMBER:
                     if(this.seeds[TypeVegetables.CUCUMBER] != 0 ){
-                        this.cells[index] =  new Cucumber
+                        this._cells[index] =  new Cucumber
                         this.seeds[TypeVegetables.CUCUMBER] -= 1
                     } else{
                         alert("Семя закончилось")
@@ -103,7 +112,7 @@ export default class FieldVegetables{
 
                 case TypeVegetables.EGGPLANT:
                     if(this.seeds[TypeVegetables.EGGPLANT] != 0 ){
-                        this.cells[index] =  new Eggplant
+                        this._cells[index] =  new Eggplant
                         this.seeds[TypeVegetables.EGGPLANT] -= 1
                     } else{
                         alert("Семя закончилось")
@@ -112,7 +121,7 @@ export default class FieldVegetables{
 
                 case TypeVegetables.ZUCCHINI:
                     if(this.seeds[TypeVegetables.ZUCCHINI] != 0 ){
-                        this.cells[index] =  new Zucchini
+                        this._cells[index] =  new Zucchini
                         this.seeds[TypeVegetables.ZUCCHINI] -= 1
                     } else{
                         alert("Семя закончилось")
@@ -121,7 +130,7 @@ export default class FieldVegetables{
 
                 case TypeVegetables.PUMPKIN:
                     if(this.seeds[TypeVegetables.PUMPKIN] != 0 ){
-                        this.cells[index] =  new Pumpkin
+                        this._cells[index] =  new Pumpkin
                         this.seeds[TypeVegetables.PUMPKIN] -= 1
                     } else{
                         alert("Семя закончилось")
@@ -130,8 +139,8 @@ export default class FieldVegetables{
 
                 case TypeVegetables.BLOCK:
                 default:
-                    this.cells[index] = new CellVegetable()
-                    console.log(this.cells)
+                    this._cells[index] = new CellVegetable()
+                    console.log(this._cells)
                     break;
             
             }
